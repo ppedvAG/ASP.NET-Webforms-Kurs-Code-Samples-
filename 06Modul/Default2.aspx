@@ -13,7 +13,7 @@
                     DataSourceID="SqlDataSource1">
                     <ItemTemplate>
                         <li class="list-group-item">
-                            <a href='<%# "details/"+Eval("CustomerID") %>'>
+                            <a href='<%# "detail.aspx?id="+Eval("CustomerID") %>'>
                                 <%#Eval("CustomerID") %>
                                 <%#Eval("CompanyName") %>
                             </a>
