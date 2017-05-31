@@ -3,7 +3,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceholder" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="CustomerID" DataSourceID="SqlDataSource2" EmptyDataText="Es sind keine Datensätze zum Anzeigen vorhanden." ForeColor="#333333" GridLines="None">
+    <asp:GridView ID="GridView1" runat="server" 
+        AllowPaging="True" 
+        AllowSorting="True" 
+        AutoGenerateColumns="true" 
+        CellPadding="4" 
+        DataKeyNames="CustomerID" 
+        DataSourceID="SqlDataSource2" 
+        EmptyDataText="Es sind keine Datensätze zum Anzeigen vorhanden." 
+        ForeColor="#333333" 
+        GridLines="None">
+        
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" ReadOnly="True" SortExpression="CustomerID" />
