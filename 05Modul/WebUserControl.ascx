@@ -1,5 +1,4 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="WebUserControl.ascx.cs" Inherits="_05Modul_WebUserControl" %>
-<%@ Import Namespace="Drawing.Color" %>
 
 <asp:Panel ID="Panel1" runat="server" >
     
