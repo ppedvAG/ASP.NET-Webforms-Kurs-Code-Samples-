@@ -23,23 +23,23 @@
                                         <%#Item.Orders.Count() %></a>
 
                                 </div>
-                                <div class="col-md-5">
-                                    <div class="collapse panel panel-default" id="collapse<%#Item.CustomerID %>">
-                                        <div class="panel-body">
-                                            <asp:Repeater ID="rptOrders" runat="server" EnableViewState="false"
-                                                ItemType="Orders" DataSource="<%#Item.Orders%>">
-                                                <ItemTemplate>
-                                                    <div>
-                                                        <%#Item.OrderDate %> <%#Item.ShipAddress %>
-                                                    </div>
-                                                </ItemTemplate>
-                                            </asp:Repeater>
 
-                                        </div>
+                            </div>
+                            <div class="row">
+                                <div class="collapse panel panel-default" id="collapse<%#Item.CustomerID %>">
+                                    <div class="panel-body">
+                                        <asp:Repeater ID="rptOrders" runat="server" EnableViewState="false"
+                                            ItemType="Orders" DataSource="<%#Item.Orders%>">
+                                            <ItemTemplate>
+                                                <div>
+                                                    <%#Item.OrderDate %> <%#Item.ShipAddress %>
+                                                </div>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+
                                     </div>
                                 </div>
                             </div>
-
                         </li>
                     </ItemTemplate>
                 </asp:Repeater>
