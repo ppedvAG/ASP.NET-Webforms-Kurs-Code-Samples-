@@ -13,7 +13,7 @@ public partial class _04Modul_Default : System.Web.UI.Page
 
         if (IsPostBack)
             {
-            Button1.Enabled = false;
+            //Button1.Enabled = false;
         }
      
     }
