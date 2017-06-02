@@ -7,6 +7,8 @@
         <h1>PageMethods ist ein miniWebservice</h1>
         <div class="col-md-12">
             <input id="Button1" type="button" value="button" onclick="refreshdata();"/>
+            <input id="btn1" type="button" value="datum" onclick="showdata();"/>
+              <input id="btn2" type="button" value="kunden" onclick="showCustomers();"/>
             <div id="inhalt">
             </div>
         </div>
@@ -15,7 +17,7 @@
         function refreshdata() {
              $.ajax({
                 type: "POST",
-                url: "default2.aspx/getData",
+                url: "'<%= ResolveUrl("default.aspx/getData") %>'",
                 contentType: "application/json; charset=utf-8",
                 data: '',
                 dataType: "json",
@@ -26,7 +28,34 @@
                 }
             });
         }
-      
+        function showdata() {
+            $.ajax({
+                type: "POST",
+                url: "webservice.asmx/getDatum",
+                contentType: "application/json; charset=utf-8",
+                data: '',
+                dataType: "json",
+                success: function (result) {
+
+                    $('#inhalt').append(result.d);
+
+                }
+               });
+           }
+        function showCustomers() {
+            $.ajax({
+                type: "POST",
+                url: "webservice.asmx/getCustomers",
+                contentType: "application/json; charset=utf-8",
+                data: '',
+                dataType: "json",
+                success: function (result) {
+
+                    $('#inhalt').append(result.d);
+
+                }
+            });
+        }
 
     </script>
 </asp:Content>
