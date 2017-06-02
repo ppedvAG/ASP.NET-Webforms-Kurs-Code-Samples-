@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="Server">
     <div class="row">
         <h1>Updatepanel ToDo</h1>
-        <asp:UpdatePanel ID="UpdatePanel2" runat="server" ChildrenAsTriggers="true">
+        <asp:UpdatePanel ID="UpdatePanel2" runat="server" ChildrenAsTriggers="true" >
             <ContentTemplate>
                 <div class="col-md-4">
                     <fieldset>
