@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.Routing;
 using Microsoft.AspNet.FriendlyUrls;
 
+
 namespace KursFrankfurt
 {
     public static class RouteConfig
@@ -11,8 +12,10 @@ namespace KursFrankfurt
         public static void RegisterRoutes(RouteCollection routes)
         {
             var settings = new FriendlyUrlSettings();
-            settings.AutoRedirectMode = RedirectMode.Permanent;
+            settings.AutoRedirectMode = RedirectMode.Off;
+            //off für Pagemethods   default.aspx-> default
             routes.EnableFriendlyUrls(settings);
+      
         }
     }
 }
