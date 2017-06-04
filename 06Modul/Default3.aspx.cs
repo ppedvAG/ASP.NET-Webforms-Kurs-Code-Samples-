@@ -11,6 +11,7 @@ public partial class _06Modul_Default3 : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
+
     }
 
     protected void singlebutton_Click(object sender, EventArgs e)
@@ -18,13 +19,13 @@ public partial class _06Modul_Default3 : System.Web.UI.Page
 
         File.AppendAllText(Server.MapPath(@"~\app_data\todoitems.txt"),
            textinput.Text + System.Environment.NewLine);
-
+        rptListe.DataBind(); //Viewstate Dekativieren verhindert button events
 
     }
 
     public IEnumerable<todo> rptListe_GetData()
     {
-        var todoList =new List<todo>();
+        var todoList = new List<todo>();
         try
         {
             var items = File.ReadAllLines(Server.MapPath(@"~\app_data\todoitems.txt"));
@@ -43,5 +44,20 @@ public partial class _06Modul_Default3 : System.Web.UI.Page
 
         return todoList;
 
-        }
+    }
+
+    protected void rptListe_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+
+
+        Response.Write(e.CommandArgument);
+        var items = File.ReadAllLines(Server.MapPath(@"~\app_data\todoitems.txt"));
+       // var id = (int) e.CommandArgument;
+        var id= Convert.ToInt32(e.CommandArgument.ToString());
+        var neuitems = items.Where(x => x != items[id]);
+        File.WriteAllLines(Server.MapPath(@"~\app_data\todoitems.txt"),
+         neuitems);
+        rptListe.DataBind();
+
+    }
 }

@@ -22,12 +22,32 @@
         </div>
         <div class="col-md-8">
             <ul class="list-group">
-                <asp:Repeater ID="rptListe" runat="server" EnableViewState="false"
+                <asp:Repeater ID="rptListe" runat="server" EnableViewState="true"
                     ItemType="todo"
-                    SelectMethod="rptListe_GetData">
+                    SelectMethod="rptListe_GetData"
+                    OnItemCommand="rptListe_ItemCommand">
                     <ItemTemplate>
                         <li class="list-group-item">
                             <div class="row">
+                                <div class="col-md-1">
+                                    <%--  <asp:Button ID="DeleteBtn" UseSubmitBehavior="false"
+                                                runat="server"
+                                                CssClass="btn btn-primary"
+                                                Text="x"
+                                                CommandName="Click"
+                                                CommandArgument="<%#Item.ID %>"
+                                                >
+ 
+                                            </asp:Button>--%>
+
+                                    <asp:LinkButton ID="HyperLink1" runat="server"
+
+                                        CommandName="Click"
+                                        CommandArgument="<%#Item.ID %>">
+                                                   <span Class="glyphicon glyphicon-remove"></span>
+                                    </asp:LinkButton>
+                                </div>
+
                                 <div class="col-md-2"><%#Item.ID%></div>
                                 <div class="col-md-6"><%#Item.Aufgabe %></div>
                             </div>
