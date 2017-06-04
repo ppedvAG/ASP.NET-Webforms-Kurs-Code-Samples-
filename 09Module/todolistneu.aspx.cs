@@ -18,7 +18,7 @@ public partial class _09Module_todolistneu : System.Web.UI.Page
 
         File.AppendAllText(Server.MapPath(@"~\app_data\todoitems.txt"),
            textinput.Text + System.Environment.NewLine);
-
+        rptListe.DataBind();
 
     }
 
@@ -42,6 +42,19 @@ public partial class _09Module_todolistneu : System.Web.UI.Page
         }
 
         return todoList;
+
+    }
+
+  
+    
+    protected void rptListe_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+        var items = File.ReadAllLines(Server.MapPath(@"~\app_data\todoitems.txt"));
+        var id = Convert.ToInt32(e.CommandArgument.ToString());
+        var neuitems = items.Where(x => x != items[id]);
+        File.WriteAllLines(Server.MapPath(@"~\app_data\todoitems.txt"),
+         neuitems);
+        rptListe.DataBind();
 
     }
 }
