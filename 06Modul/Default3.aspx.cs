@@ -50,9 +50,7 @@ public partial class _06Modul_Default3 : System.Web.UI.Page
     {
 
 
-        Response.Write(e.CommandArgument);
         var items = File.ReadAllLines(Server.MapPath(@"~\app_data\todoitems.txt"));
-       // var id = (int) e.CommandArgument;
         var id= Convert.ToInt32(e.CommandArgument.ToString());
         var neuitems = items.Where(x => x != items[id]);
         File.WriteAllLines(Server.MapPath(@"~\app_data\todoitems.txt"),
